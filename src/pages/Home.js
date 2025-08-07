@@ -84,7 +84,7 @@ function Home() {
     }
 
     function allTasks() {
-        const allTasks = localStorage.getItem('tasks') || []
+        const allTasks = localStorage.getItem('tasks')
         dispatch({
             type: TaskActionTypes.ALLTASKS,
             payload: allTasks
