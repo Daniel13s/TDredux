@@ -1,7 +1,7 @@
 import TaskActionTypes from "./action-types";
 
 const initialState = {
-  tasks: localStorage.getItem("tasks") || [],
+  tasks: JSON.parse(localStorage.getItem("tasks")) || [],
 };
 
 const taskReducer = (state = initialState, action) => {
