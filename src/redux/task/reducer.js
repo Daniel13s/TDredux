@@ -9,7 +9,7 @@ const taskReducer = (state = initialState, action) => {
     case TaskActionTypes.CREATE:
       const listafull = localStorage.getItem('tasks')
       const newTask = action.payload;
-      const lista = [...listafull, newTask];
+      const lista = [listafull, newTask];
       localStorage.setItem("tasks", JSON.stringify(lista));
       return { ...state, tasks: lista };
 
@@ -17,7 +17,7 @@ const taskReducer = (state = initialState, action) => {
       const taskDelete = action.payload;
       const tasksFilter = state.tasks.filter((task) => task !== taskDelete);
       localStorage.setItem("tasks", JSON.stringify(tasksFilter));
-      return { ...state, tasks: [...tasksFilter] };
+      return { ...state, tasks: [tasksFilter] };
 
     case TaskActionTypes.UPDATE:
         const taskUpdate = action.payload;
