@@ -66,7 +66,7 @@ function Home() {
         })
     }
     function tasksCheck() {
-        tasks = localStorage.getItem("tasks")
+        tasks = JSON.parse(localStorage.getItem("tasks"))
         const tasksCheck = tasks.filter(task => task.isComplete !== false)
         dispatch({
             type: TaskActionTypes.FILTERCHECK,
@@ -75,7 +75,7 @@ function Home() {
     }
 
     function tasksPendentes() {
-        tasks = localStorage.getItem("tasks")
+        tasks = JSON.parse(localStorage.getItem("tasks"))
         const tasksPen = tasks.filter(task => task.isComplete !== true)
         dispatch({
             type: TaskActionTypes.FILTERPEN,
@@ -84,7 +84,7 @@ function Home() {
     }
 
     function allTasks() {
-        const allTasks = localStorage.getItem('tasks')
+        const allTasks = JSON.parse(localStorage.getItem("tasks"))
         dispatch({
             type: TaskActionTypes.ALLTASKS,
             payload: allTasks
