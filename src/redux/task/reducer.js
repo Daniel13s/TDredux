@@ -8,8 +8,7 @@ const taskReducer = (state = initialState, action) => {
   switch (action.type) {
     case TaskActionTypes.CREATE:
       const newTask = action.payload;
-      const tasks = JSON.parse(localStorage.getItem("tasks")) || []
-      tasks = [...tasks, newTask]
+      const lista = [state.tasks, newTask]
       localStorage.setItem("tasks", JSON.stringify(lista));
       return { ...state, tasks: lista };
 
